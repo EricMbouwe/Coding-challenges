@@ -1,0 +1,8 @@
+p[data-gluten-free='true']::before {
+    content: 'gluten free ';
+    color: green;
+}
+
+body {
+    background-color: #ccc;
+}
