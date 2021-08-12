@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@600&display=swap');
+
+@function toRem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
+}
+
+$btn-primary: #1d74ff;
+$btn-secondary: #60d9ff;
+$btn-text-color: #fff;
+$btn-border-radius: toRem(22);
+$btn-font-med: toRem(52);
+$line-height-lg: toRem(61);
+$light-blue: rgb(71, 184, 255);
+$blue: rgb(58, 125, 233);
+$dark-blue: rgb(19, 95, 216);
+$gray-blue: rgb(175, 230, 255);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100vw;
+  min-height: 100vh;
+
+  font-size: max(5vmin, 16px);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  position: relative;
+  font-family: 'Recursive', sans-serif;
+  font-size: $btn-font-med;
+  line-height: $line-height-lg;
+  text-align: center;
+  color: $btn-text-color;
+  padding: toRem(42) toRem(61) toRem(44) toRem(60);
+
+  background: linear-gradient(
+    322.24deg,
+    $btn-secondary -4.38%,
+    $btn-primary 48.84%
+  );
+
+  box-shadow: 0px 0px 20px rgba($light-blue, 0.5),
+    0px 5px 5px -1px rgba($blue, 0.245848),
+    inset 4px 4px 8px rgba($gray-blue, 0.521689),
+    inset -4px -4px 8px rgba($dark-blue, 0.356998);
+
+  border: none;
+  border-radius: $btn-border-radius;
+  cursor: pointer;
+  z-index: 1;
+  transition: box-shadow 0.5s ease-out;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: linear-gradient(
+      126.58deg,
+      $btn-secondary -3.24%,
+      $btn-primary 57.16%
+    );
+
+    border-radius: $btn-border-radius;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s linear;
+  }
+
+  &:hover {
+    box-shadow: 0px 5px 50px rgba($light-blue, 0.75),
+      0px 10px 10px -4px rgba($blue, 0.360113),
+      inset 4px 4px 8px rgba($gray-blue, 0.521689),
+      inset -4px -4px 8px rgba($dark-blue, 0.356998);
+
+    &:before {
+      opacity: 1;
+    }
+  }
+}
