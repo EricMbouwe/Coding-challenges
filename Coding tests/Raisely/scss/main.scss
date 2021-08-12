@@ -16,6 +16,30 @@ $blue: rgb(58, 125, 233);
 $dark-blue: rgb(19, 95, 216);
 $gray-blue: rgb(175, 230, 255);
 
+$btn-gradient: linear-gradient(
+  322.24deg,
+  $btn-secondary -4.38%,
+  $btn-primary 48.84%
+);
+
+$btn-gradient-hover: linear-gradient(
+  126.58deg,
+  $btn-secondary -3.24%,
+  $btn-primary 57.16%
+);
+
+$btn-shadow: 0px 0px 20px rgba($light-blue, 0.5),
+  0px 5px 5px -1px rgba($blue, 0.245848),
+  inset 4px 4px 8px rgba($gray-blue, 0.521689),
+  inset -4px -4px 8px rgba($dark-blue, 0.356998);
+
+$btn-shadow-hover: 0px 5px 50px rgba($light-blue, 0.75),
+  0px 10px 10px -4px rgba($blue, 0.360113),
+  inset 4px 4px 8px rgba($gray-blue, 0.521689),
+  inset -4px -4px 8px rgba($dark-blue, 0.356998);
+
+$btn-transition-duration: 0.5s;
+
 *,
 *::before,
 *::after {
@@ -48,22 +72,14 @@ button {
   color: $btn-text-color;
   padding: toRem(42) toRem(61) toRem(44) toRem(60);
 
-  background: linear-gradient(
-    322.24deg,
-    $btn-secondary -4.38%,
-    $btn-primary 48.84%
-  );
-
-  box-shadow: 0px 0px 20px rgba($light-blue, 0.5),
-    0px 5px 5px -1px rgba($blue, 0.245848),
-    inset 4px 4px 8px rgba($gray-blue, 0.521689),
-    inset -4px -4px 8px rgba($dark-blue, 0.356998);
+  background: $btn-gradient;
+  box-shadow: $btn-shadow;
 
   border: none;
   border-radius: $btn-border-radius;
   cursor: pointer;
   z-index: 1;
-  transition: box-shadow 0.5s ease-out;
+  transition: box-shadow $btn-transition-duration ease-out;
 
   &:before {
     position: absolute;
@@ -73,23 +89,16 @@ button {
     bottom: 0;
     left: 0;
 
-    background: linear-gradient(
-      126.58deg,
-      $btn-secondary -3.24%,
-      $btn-primary 57.16%
-    );
+    background: $btn-gradient-hover;
 
     border-radius: $btn-border-radius;
     opacity: 0;
     z-index: -1;
-    transition: opacity 0.5s linear;
+    transition: opacity $btn-transition-duration linear;
   }
 
   &:hover {
-    box-shadow: 0px 5px 50px rgba($light-blue, 0.75),
-      0px 10px 10px -4px rgba($blue, 0.360113),
-      inset 4px 4px 8px rgba($gray-blue, 0.521689),
-      inset -4px -4px 8px rgba($dark-blue, 0.356998);
+    box-shadow: $btn-shadow-hover;
 
     &:before {
       opacity: 1;
