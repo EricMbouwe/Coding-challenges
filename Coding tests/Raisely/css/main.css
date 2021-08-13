@@ -35,6 +35,13 @@ button {
   z-index: 1;
   transition: box-shadow 0.5s ease-out;
 }
+@media (max-width: 650px) {
+  button {
+    font-size: 2.25rem;
+    line-height: 1.8125rem;
+    padding: 1.625rem 1.8125rem 1.75rem 1.75rem;
+  }
+}
 button:before {
   position: absolute;
   content: "";

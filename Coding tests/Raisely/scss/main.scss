@@ -81,6 +81,12 @@ button {
   z-index: 1;
   transition: box-shadow $btn-transition-duration ease-out;
 
+  @media (max-width: 650px) {
+    font-size: 2.25rem;
+    line-height: 1.8125rem;
+    padding: 1.625rem 1.8125rem 1.75rem 1.75rem;
+  }
+
   &:before {
     position: absolute;
     content: '';
