@@ -23,7 +23,7 @@ function StringChallenge(str) {
   return 'true';
 }
 
-console.log(StringChallenge('<div>exemple<div><b></b></div></p>'));
+console.log(StringChallenge('<div><div><b></b></div></p>'));
 
 // Regular expression to identify HTML tags in
 // the input string. Replacing the identified
