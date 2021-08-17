@@ -72,15 +72,10 @@ function PhoneBookForm({ addEntryToPhoneBook }) {
     return false;
   };
 
-  console.log(validateInputs());
-  console.log('Firstname', userData.firstName);
-  console.log('Lasttname', userData.lastName);
-  console.log('Phone', userData.phone);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submit clicked');
     if (validateInputs()) return;
+
     addEntryToPhoneBook(userData);
     setUserData({
       id: Math.floor(Math.random() * 1000000),
