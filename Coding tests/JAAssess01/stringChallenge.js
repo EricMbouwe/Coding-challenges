@@ -1,6 +1,5 @@
 function StringChallenge(str) {
-  if (str === null || str === '') return 'false';
-
+  if (str === null || str === '') return false;
   const tags = str.match(/(<([^>]+)>)/gi, '');
   const stack = [];
   const openings = ['<div>', '<b>', '<i>', '<em>', '<p>'];
@@ -10,8 +9,6 @@ function StringChallenge(str) {
     if (openings.includes(tags[i])) stack.push(tags[i]);
     if (closings.includes(tags[i])) {
       const top = stack.pop();
-
-      if (!top) return 'false';
       if (
         (top === '<div>' && tags[i] !== '</div>') ||
         (top === '<b>' && tags[i] !== '</b>') ||
@@ -26,7 +23,7 @@ function StringChallenge(str) {
   return 'true';
 }
 
-console.log(StringChallenge('<b>bold</b></p></div>'));
+console.log(StringChallenge('<div>exemple<div><b></b></div></p>'));
 
 // Regular expression to identify HTML tags in
 // the input string. Replacing the identified
