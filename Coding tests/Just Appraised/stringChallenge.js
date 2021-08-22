@@ -23,10 +23,14 @@ function StringChallenge(str) {
     }
   }
 
-  return 'true';
+  if (stack.length === 0) {
+    return 'true';
+  } else {
+    return 'false';
+  }
 }
 
-console.log(StringChallenge('<b>bold</b></p></div>'));
+console.log(StringChallenge('<b></b>'));
 
 // Regular expression to identify HTML tags in
 // the input string. Replacing the identified
